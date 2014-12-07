@@ -1,0 +1,12 @@
+///////////////////
+// Arduino-Stuff //
+///////////////////
+
+// What's this ?
+This is a general repository containing the various firmwares used for my projects.
+These firmwares are not really made to be shared, so no documentation is available for them.
+
+// List of projects concerned by these files
+
+- Strobot:
+	Strobot_LEDPanel : firmware used by the LED Panels, used either with Teensy 3.0 or 3.1
