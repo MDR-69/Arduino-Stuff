@@ -9,4 +9,23 @@ These firmwares are not really made to be shared, so no documentation is availab
 // List of projects concerned by these files
 
 - Strobot:
-	Strobot_LEDPanel : firmware used by the LED Panels, used either with Teensy 3.0 or 3.1
+	Strobot_LEDPanel:
+		Firmware used by the LED Panels
+		Receive a raw binary image over Serial USB, and convert it to 
+		an electrical signal which can be understood by WS2810 LEDs
+		Uses the FastLED library
+		Compatible microcontrollers: Teensy 3.0 or 3.1
+	Strobot_LEDStrip_RackLight:
+		Firmware used by the LED strips on the corners of the racks
+		Receive a command over the serial link, calculate a LED
+		animation and convert it to an electrical signal which can
+		be understood by WS2812B LED strips
+		Uses the FastLED library
+		Compatible microcontrollers: Arduino Nanos and clones
+	Strobot_LEDStrip_Tube:
+		Firmware used by the neon-like LED tubes
+		Receive a command over the serial link, calculate a LED
+		animation and convert it to an electrical signal which can
+		be understood by WS2812B LED strips
+		Uses the FastLED library
+		Compatible microcontrollers: Arduino Nanos and clones
