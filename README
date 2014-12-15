@@ -29,3 +29,17 @@ These firmwares are not really made to be shared, so no documentation is availab
 		be understood by WS2812B LED strips
 		Uses the FastLED library
 		Compatible microcontrollers: Arduino Nanos and clones
+	Strobot_USBSerial_To_nRF24:
+		Firmware used by Strobot (uC connected to the main computer)
+		From Processing, send some commands to the custom devices over nRF24
+	Strobot_nRF24_Receptor:
+		Generic firmware used by all the custom devices
+		Receive some commands sent over nRF24. For now, the commands are 
+		simple int values, for better reliability.
+		The program could be improved to send directly the data to be displayed,
+		consider this on the TODO list
+	Teensy_2_Serial_To_DMX:
+		Simple Serial to DMX firmware
+		From Processing or any other program using the Serial link,
+		control DMX devices from your computer, by sending a string to the uC
+		Use example - 100c355w : Set channel 100 to value 255

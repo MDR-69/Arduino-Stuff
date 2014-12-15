@@ -64,8 +64,9 @@ void setup(void)
   // Start listening to catch any incoming packet on this pipe
   radio.startListening();
 
-  // Dump the configuration of the rf unit (not to be commented out, this messes up the program)
-  //radio.printDetails();
+  // Dump the configuration of the rf unit (not to be uncommented, this messes up the program : 
+  // the data is sent over the Tx link, which goes in turn to the uC paired up to this receptor)
+  // radio.printDetails();
 }
 
 void loop(void)
@@ -84,7 +85,6 @@ void loop(void)
         if (currentAnimation != incoming_val) {
           currentAnimation = incoming_val;
           Serial.print(currentAnimation);
-         
         }
       }
     }
