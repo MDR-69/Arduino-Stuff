@@ -43,3 +43,11 @@ These firmwares are not really made to be shared, so no documentation is availab
 		From Processing or any other program using the Serial link,
 		control DMX devices from your computer, by sending a string to the uC
 		Use example - 100c355w : Set channel 100 to value 255
+	MIDITranslatorRackBrice:
+		Simple MIDI to MIDI interface for Teensy 2.0 (could be modified for Nanos, it'd be cheaper)
+		Receive MIDI, process, and send some different MIDI back
+		This is used to create an easy-to-configure patch to use in a live setting
+		Use case: depending on the messages sent by a MIDI footswitch (usually one 
+		message per button push), send different messages on different channels, to
+		control different devices (ex: multiple racked devices, each listening on a
+		different channel)
