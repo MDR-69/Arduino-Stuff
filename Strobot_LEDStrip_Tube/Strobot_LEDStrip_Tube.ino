@@ -13,7 +13,7 @@
 #include "FastSPI_LED2.h"
 #include "printf.h"
 
-#define NUM_LEDS 240
+#define NUM_LEDS 120
 
 #define MAX_INTENSITY_VALUE 255
 
@@ -24,10 +24,10 @@
 #define FAST_SINE_VALUE 10
 #define SMOOTHSINE_RAINBOW_TIMEFACTOR 40
 
-#define VERYSLOW_STROBO_DELAY 75
-#define SLOW_STROBO_DELAY 50
-#define MEDIUM_STROBO_DELAY 25
-#define FAST_STROBO_DELAY 10
+#define VERYSLOW_STROBO_DELAY 200
+#define SLOW_STROBO_DELAY 100
+#define MEDIUM_STROBO_DELAY 50
+#define FAST_STROBO_DELAY 25
 
 #define FAST_FLASH_DELAY 0
 #define SLOW_FLASH_DELAY 2
@@ -45,16 +45,17 @@
 #define SHORT_WAVELENGTH 20
 #define LONG_WAVELENGTH 60
 #define SINGLE_WAVE_DELAY 0
+#define SINGLE_WAVE_PROGRESS 3
 
-#define FAST_BUILDUP_DELAY 0
-#define MEDIUM_BUILDUP_DELAY 4
-#define SLOW_BUILDUP_DELAY 15
-#define VERYSLOW_BUILDUP_DELAY 50
+#define FAST_BUILDUP_DELAY 10
+#define MEDIUM_BUILDUP_DELAY 25
+#define SLOW_BUILDUP_DELAY 100
+#define VERYSLOW_BUILDUP_DELAY 240
 #define BUILDUP_RAINBOW_TIMEFACTOR 40
 
 
 CRGB leds[NUM_LEDS];           // the current values of the LED strip
-int animationNumber = 1;      // a variable to store the number of the current animation
+int animationNumber = 69;      // a variable to store the number of the current animation
 unsigned int progress = 0;              // a variable to make the animations evolve
 int value = 0;                 // a variable to read incoming serial data into
 
@@ -848,7 +849,7 @@ void upwardWave(int waveLength, int r, int g, int b) {
     }
   }
   FastLED.show();
-  progress += 1;
+  progress += SINGLE_WAVE_PROGRESS;
   delay(SINGLE_WAVE_DELAY);
 }
 
@@ -864,6 +865,6 @@ void downwardWave(int waveLength, int r, int g, int b) {
     }
   }
   FastLED.show();
-  progress += 1;
+  progress += SINGLE_WAVE_PROGRESS;
   delay(SINGLE_WAVE_DELAY);
 }

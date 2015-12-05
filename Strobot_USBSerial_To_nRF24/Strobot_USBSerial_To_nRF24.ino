@@ -19,7 +19,7 @@
 #include "RF24.h"
 #include "printf.h"
 
-#define NUMBER_OF_DEVICES 7
+#define NUMBER_OF_DEVICES 4
 #define RF_CHANNEL 96
 #define DEBUG 1
 
@@ -30,19 +30,16 @@ RF24 radio(9,10);
 
 
 // Topology
-// Radio pipe addresses for 7 nodes to communicate, plus one for the master channel
+// Radio pipe addresses for 4 nodes to communicate, plus one for the master channel
 const uint64_t masterPipe = 0xF0F0F0F011LL;
 
 const uint64_t pipes[NUMBER_OF_DEVICES] = { 0xF0F0F0F022LL, 
                                             0xF0F0F0F033LL, 
                                             0xF0F0F0F044LL, 
-                                            0xF0F0F0F055LL, 
-                                            0xF0F0F0F066LL, 
-                                            0xF0F0F0F077LL,
-                                            0xF0F0F0F088LL };
+                                            0xF0F0F0F055LL };
 
-// Table containing the animations to be played, for devices whose number range from 0 to 6
-int currentAnimations[NUMBER_OF_DEVICES] = {0,0,0,0,0,0,0};
+// Table containing the animations to be played, for devices whose number range from 0 to 3
+int currentAnimations[NUMBER_OF_DEVICES] = {0,0,0,0};
 
 //Temporary variables used to receive data from Processing
 int value = 0;
@@ -117,21 +114,12 @@ void loop(void)
           setAnimation(channel);  
           //#ifdef DEBUG
             //printf("Received command for channel %d : animation %d\n", channel, value);
-            printf("Current animation table : %d, %d, %d, %d, %d, %d, %d\n", currentAnimations[0], currentAnimations[1],currentAnimations[2],currentAnimations[3],currentAnimations[4],currentAnimations[5],currentAnimations[6]);
+            printf("Current animation table : %d, %d, %d, %d\n", currentAnimations[0], currentAnimations[1],currentAnimations[2],currentAnimations[3]);
           //#endif
         }
         value = 0;
       }
     }  
-
-
-
-    // Take the time, and send it.  This will block until complete
-//    printf("Now sending %d...",currentAnimations[0]);
-//    bool ok = radio.write( &currentAnimations[0], sizeof(int) );
-
-
-    
 }
 
 void setAnimation(int deviceNumber) {

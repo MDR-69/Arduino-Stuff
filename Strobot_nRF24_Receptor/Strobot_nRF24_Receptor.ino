@@ -14,7 +14,7 @@
 #include "RF24.h"
 #include "printf.h"
 
-#define NUMBER_OF_DEVICES 7
+#define NUMBER_OF_DEVICES 4
 #define DEVICE_NUMBER 0
 #define RF_CHANNEL 96
 #define DEBUG 1
@@ -25,15 +25,12 @@ RF24 radio(9,10);
 // Variable to store the last incoming animation
 int currentAnimation = 0;
 
-// Topology : Radio pipe addresses for 7 nodes to communicate, plus one for the master channel
+// Topology : Radio pipe addresses for 4 nodes to communicate, plus one for the master channel
 const uint64_t masterPipe = 0xF0F0F0F011LL;
 const uint64_t pipes[NUMBER_OF_DEVICES] = { 0xF0F0F0F022LL, 
                                             0xF0F0F0F033LL, 
                                             0xF0F0F0F044LL, 
-                                            0xF0F0F0F055LL, 
-                                            0xF0F0F0F066LL, 
-                                            0xF0F0F0F077LL,
-                                            0xF0F0F0F088LL };
+                                            0xF0F0F0F055LL};
 
 
 void setup(void)
